@@ -15,22 +15,18 @@ import java.sql.Statement;
  *
  * @author M6500
  */
-public class TestSqlOne {
+public class DeleteSqlTest1 {
 
     public static void main(String[] args) throws SQLException {
         Connection connection=null;
         try {
             connection = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", null);
             Statement createStatement = connection.createStatement();
-            ResultSet rs = createStatement.executeQuery("SELECT * FROM TEST");
-            while (rs.next()) {
-                int id = rs.getInt("ID");
-                String name = rs.getString("NAME");
-                String sex = rs.getString("SEX");
-                Date date = rs.getDate("BOD");
-                System.out.println("id = " + id + " name = " + name + " sex = " + sex + " date = " + date);
-            }
-        } finally {
+            int rs = createStatement.executeUpdate("DELETE FROM TEST WHERE ID=4");
+            System.out.println("insert result rows"+rs);
+        } catch(SQLException e){
+            e.printStackTrace();
+        }finally {
             if(connection!=null){
                 connection.close();
             }
