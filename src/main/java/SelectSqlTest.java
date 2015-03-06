@@ -18,7 +18,7 @@ import java.sql.Statement;
 public class SelectSqlTest {
 
     public static void main(String[] args) throws SQLException {
-        Connection connection=null;
+        Connection connection = null;
         try {
             connection = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", null);
             Statement createStatement = connection.createStatement();

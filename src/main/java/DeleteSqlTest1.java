@@ -23,7 +23,7 @@ public class DeleteSqlTest1 {
             connection = DriverManager.getConnection("jdbc:h2:tcp://localhost/~/test", "sa", null);
             Statement createStatement = connection.createStatement();
             int rs = createStatement.executeUpdate("DELETE FROM TEST WHERE ID=4");
-            System.out.println("insert result rows"+rs);
+            System.out.println("DELETE result rows"+rs);
         } catch(SQLException e){
             e.printStackTrace();
         }finally {
